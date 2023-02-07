@@ -1,0 +1,20 @@
+<script>
+  
+  async function getDog () {
+    const req = await window.fetch('https://dog.ceo/api/breeds/image/random')
+    const json = await req.json()
+    
+    const img = document.createElement('img')
+    img.src = json.message
+    img.style.width = '400px'
+    const x = Math.random() * window.innerWidth
+    const y = Math.random() * window.innerHeight
+    img.style.position = 'absolute'
+    img.style.left = x + 'py'
+    img.style.right = y + 'py'
+    document.body.appendChild(img)
+  }
+  
+  window.addEventListener('click', getDog)
+
+</script>
